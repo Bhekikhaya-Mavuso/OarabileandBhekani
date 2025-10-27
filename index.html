@@ -8,166 +8,105 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css" />
+  <style>
+    :root{
+      --bg:#faf8f6; --fg:#1f2937; --muted:#6b7280;
+      --brand:#1e3a8a; --brand-600:#1e40af; --card:#ffffff;
+      --ring:rgba(30,58,138,0.3);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    html{scroll-behavior:smooth}
+    body{margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif; color:var(--fg); background:var(--bg)}
+    .container{width:min(1100px,92%); margin:0 auto}
+
+    /* Header */
+    header{position:sticky; top:0; backdrop-filter: blur(10px); background: rgba(250,248,246,0.7); border-bottom:1px solid #eee; z-index:10}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .brand{font-family:"Playfair Display", serif; font-weight:700; letter-spacing:.5px; font-size:20px; white-space:nowrap}
+    nav{display:flex; gap:8px; overflow:auto; white-space:nowrap}
+
+    /* Buttons */
+    .btn{display:inline-flex; align-items:center; gap:.5rem; padding:.75rem 1rem; border-radius:12px; border:1px solid #e5e7eb; background:var(--card); text-decoration:none; color:var(--fg); font-weight:600; line-height:1; min-height:44px}
+    .btn.primary{background:var(--brand); color:#fff; border-color:transparent; box-shadow:0 6px 14px rgba(30,58,138,.18)}
+    .btn.primary:hover{background:var(--brand-600); transform:translateY(-1px)}
+    .btn:focus-visible{outline:3px solid var(--ring); outline-offset:2px}
+
+    /* Hero */
+    .hero{display:grid; grid-template-columns:1.3fr .7fr; gap:28px; align-items:center; padding:48px 0}
+    .hero-card{background:var(--card); border:1px solid #eee; padding:28px; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,.04)}
+    .title{font-family:"Playfair Display", serif; font-size:clamp(34px, 5vw, 58px); line-height:1.05; margin:0 0 10px}
+    .subtitle{color:var(--muted); margin:0 0 18px; font-size:15px}
+    .intro{margin:0 0 18px; max-width:60ch}
+    .hero-actions{display:flex; gap:12px; flex-wrap:wrap}
+
+    /* Slideshow */
+    .cover{position:relative; border-radius:22px; overflow:hidden; aspect-ratio: 4/5; border:1px solid #eee; box-shadow:0 10px 40px rgba(0,0,0,.06)}
+    .cover .slide{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; opacity:0; transform:scale(1.03); transition: opacity 1s ease, transform 6s ease}
+    .cover .slide.active{opacity:1; transform:scale(1)}
+    .badge{position:absolute; bottom:14px; right:14px; background:rgba(255,255,255,.86); backdrop-filter: blur(6px); padding:10px 14px; border-radius:12px; font-weight:600; border:1px solid #e5e7eb}
+
+    /* Sections */
+    .section{padding:28px 0 8px}
+    .section h2{font-family:"Playfair Display", serif; font-size:28px; margin:0 0 6px}
+    .section p{color:var(--muted); margin:0}
+
+    /* Grid */
+    .grid{margin:18px 0 50px; display:grid; gap:12px; grid-template-columns: repeat(12, 1fr)}
+    .tile{grid-column: span 4; position:relative; overflow:hidden; border-radius:16px; border:1px solid #eee; background:var(--card)}
+    .tile.portrait{grid-column: span 3}
+    .tile.wide{grid-column: span 6}
+    .tile img{width:100%; height:100%; object-fit:cover; display:block; transition: transform .5s ease}
+    .tile:hover img{transform: scale(1.03)}
+    .tile button{position:absolute; inset:0; border:0; background:transparent; cursor:pointer}
+
+    /* Reveal animation */
+    .reveal{opacity:0; transform:translateY(14px) scale(.985); transition:opacity .7s ease, transform .7s ease}
+    .reveal.in{opacity:1; transform:none}
+
+    /* Thank you */
+    .thankyou{position:relative; overflow:hidden; border-radius:20px; padding:28px; background:linear-gradient(135deg, rgba(30,58,138,.12), rgba(30,64,175,.08)); border:1px solid #e5e7eb; box-shadow:0 10px 30px rgba(0,0,0,.04)}
+    .thankyou h2{margin:0; text-align:center; font-family:"Playfair Display", serif; font-size:clamp(22px, 5.5vw, 40px)}
+    .thankyou .sparkle{display:inline-block; animation:pulse 2.2s ease-in-out infinite}
+    @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+    .cta-center{margin-top:18px; display:flex; justify-content:center}
+
+    /* Lightbox */
+    #lightbox{padding:0; border:none; border-radius:16px; overflow:hidden; max-width:min(96vw,1200px); max-height:92vh}
+    .lightbox-inner{position:relative; background:#000}
+    #lightImg{display:block; max-width:96vw; max-height:92vh; width:100%; height:auto; object-fit:contain; background:#000}
+    #closeBtn{position:absolute; top:10px; right:10px; background:rgba(255,255,255,.92); border:1px solid #e5e7eb; padding:8px 10px; border-radius:999px; cursor:pointer}
+
+    /* Footer */
+    footer{padding:36px 0 48px; color:var(--muted); font-size:14px}
+    footer .row{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; align-items:center}
+    .credit{display:flex; align-items:center; gap:8px}
+    .social{display:flex; gap:10px}
+    .social a{display:inline-flex; padding:8px; border-radius:10px; border:1px solid #e5e7eb; background:var(--card)}
+
+    /* Responsive */
+    @media (max-width: 980px){ .hero{grid-template-columns:1fr} .cover{order:-1} }
+    @media (max-width: 640px){
+      .grid{grid-template-columns: repeat(6, 1fr)}
+      .tile{grid-column: span 6}
+      .tile.portrait{grid-column: span 6}
+      .tile.wide{grid-column: span 12}
+      .hero-actions{display:grid; grid-template-columns:1fr 1fr; gap:10px}
+      .hero-actions .btn{width:100%; justify-content:center}
+    }
+    @media (max-width:480px){
+      .nav{padding:10px 0}
+      nav .btn{padding:.6rem .85rem; border-radius:10px}
+      .hero{padding:24px 0}
+      .hero-card{padding:18px}
+      .title{font-size:clamp(26px, 7.5vw, 38px)}
+      .subtitle{font-size:14px}
+      .badge{font-size:12px}
+      .hero-actions{grid-template-columns:1fr}
+    }
+  </style>
 </head>
 <body>
   <header>
     <div class="container nav">
-      <div class="brand" aria-label="Couple names">Oarabile &amp; Bhekani</div>
-      <nav>
-        <a class="btn" href="#gallery">Gallery</a>
-        <a class="btn primary" href="https://photos.app.goo.gl/t2XHYmYEDafnPmdV8" target="_blank" rel="noopener">Full Album</a>
-      </nav>
-    </div>
-  </header>
-
-  <main class="container">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-card">
-        <h1 id="hero-title" class="title">Oarabile &amp; Bhekani — Our Wedding Photos</h1>
-        <p class="subtitle">25 October 2025 | Meredale | By Sky Walkers Media</p>
-        <p class="intro">Tap any image to view larger or visit the full gallery.</p>
-        <div class="hero-actions">
-          <a class="btn primary" href="https://photos.app.goo.gl/t2XHYmYEDafnPmdV8" target="_blank" rel="noopener">View Full Gallery</a>
-          <a class="btn" href="#gallery">Scroll to Highlights</a>
-        </div>
-      </div>
-
-      <!-- HERO SLIDESHOW (uses 4 images from Images/) -->
-      <figure class="cover reveal" aria-label="Hero slideshow">
-        <img class="slide active" src="Images/DSC_0012.jpeg" alt="Wedding portrait" loading="eager"/>
-        <img class="slide" src="Images/DSC_0410.jpeg" alt="Processional moment" loading="lazy"/>
-        <img class="slide" src="Images/DSC_0096_1.jpeg" alt="Ceremony smiles" loading="lazy"/>
-        <img class="slide" src="Images/DSC_0429.jpeg" alt="Candid after the ceremony" loading="lazy"/>
-        <figcaption class="badge">300+ images</figcaption>
-      </figure>
-    </section>
-
-    <section id="gallery" class="section" aria-labelledby="gal-title">
-      <h2 id="gal-title">Highlights</h2>
-      
-      <div class="grid" role="list">
-        <!-- 20 images — URL-encoded for spaces in filenames -->
-        <figure class="tile wide reveal" role="listitem">
-          <img src="Images/DSC_0410.jpeg" alt="DSC_0410" loading="lazy" />
-          <button aria-label="Open DSC_0410" data-full="Images/DSC_0410.jpeg"></button>
-        </figure>
-        <figure class="tile reveal" role="listitem">
-          <img src="Images/DSC_0426.jpeg" alt="DSC_0426" loading="lazy" />
-          <button aria-label="Open DSC_0426" data-full="Images/DSC_0426.jpeg"></button>
-        </figure>
-        <figure class="tile portrait reveal" role="listitem">
-          <img src="Images/DSC_0428.jpeg" alt="DSC_0428" loading="lazy" />
-          <button aria-label="Open DSC_0428" data-full="Images/DSC_0428.jpeg"></button>
-        </figure>
-        <figure class="tile reveal" role="listitem">
-          <img src="Images/DSC_0429.jpeg" alt="DSC_0429" loading="lazy" />
-          <button aria-label="Open DSC_0429" data-full="Images/DSC_0429.jpeg"></button>
-        </figure>
-        <figure class="tile reveal" role="listitem">
-          <img src="Images/DSC_0012.jpeg" alt="DSC_0012" loading="lazy" />
-          <button aria-label="Open DSC_0012" data-full="Images/DSC_0012.jpeg"></button>
-        </figure>
-        <figure class="tile wide reveal" role="listitem">
-          <img src="Images/DSC_0096_1.jpeg" alt="DSC_0096_1" loading="lazy" />
-          <button aria-label="Open DSC_0096_1" data-full="Images/DSC_0096_1.jpeg"></button>
-        </figure>
-        <figure class="tile portrait reveal" role="listitem">
-          <img src="Images/DSC_0099.jpeg" alt="DSC_0099" loading="lazy" />
-          <button aria-label="Open DSC_0099" data-full="Images/DSC_0099.jpeg"></button>
-        </figure>
-        <figure class="tile reveal" role="listitem">
-          <img src="Images/DSC_0104_1.jpeg" alt="DSC_0104_1" loading="lazy" />
-          <button aria-label="Open DSC_0104_1" data-full="Images/DSC_0104_1.jpeg"></button>
-        </figure>
-        <figure class="tile portrait reveal" role="listitem">
-          <img src="Images/DSC_0131.jpeg" alt="DSC_0131" loading="lazy" />
-          <button aria-label="Open DSC_0131" data-full="Images/DSC_0131.jpeg"></button>
-        </figure>
-        <figure class="tile reveal" role="listitem">
-          <img src="Images/DSC_0167.jpeg" alt="DSC_0167" loading="lazy" />
-          <button aria-label="Open DSC_0167" data-full="Images/DSC_0167.jpeg"></button>
-        </figure>
-        <figure class="tile wide reveal" role="listitem">
-          <img src="Images/DSC_0264%20(2).jpeg" alt="DSC_0264 (2)" loading="lazy" />
-          <button aria-label="Open DSC_0264 (2)" data-full="Images/DSC_0264%20(2).jpeg"></button>
-        </figure>
-        <figure class="tile portrait reveal" role="listitem">
-          <img src="Images/DSC_0267%20(2).jpeg" alt="DSC_0267 (2)" loading="lazy" />
-          <button aria-label="Open DSC_0267 (2)" data-full="Images/DSC_0267%20(2).jpeg"></button>
-        </figure>
-        <figure class="tile reveal" role="listitem">
-          <img src="Images/DSC_0275%20(2).jpeg" alt="DSC_0275 (2)" loading="lazy" />
-          <button aria-label="Open DSC_0275 (2)" data-full="Images/DSC_0275%20(2).jpeg"></button>
-        </figure>
-        <figure class="tile portrait reveal" role="listitem">
-          <img src="Images/DSC_0282.jpeg" alt="DSC_0282" loading="lazy" />
-          <button aria-label="Open DSC_0282" data-full="Images/DSC_0282.jpeg"></button>
-        </figure>
-        <figure class="tile reveal" role="listitem">
-          <img src="Images/DSC_0283.jpeg" alt="DSC_0283" loading="lazy" />
-          <button aria-label="Open DSC_0283" data-full="Images/DSC_0283.jpeg"></button>
-        </figure>
-        <figure class="tile wide reveal" role="listitem">
-          <img src="Images/DSC_0350%20(2).jpeg" alt="DSC_0350 (2)" loading="lazy" />
-          <button aria-label="Open DSC_0350 (2)" data-full="Images/DSC_0350%20(2).jpeg"></button>
-        </figure>
-        <figure class="tile reveal" role="listitem">
-          <img src="Images/DSC_0355%20(2).jpeg" alt="DSC_0355 (2)" loading="lazy" />
-          <button aria-label="Open DSC_0355 (2)" data-full="Images/DSC_0355%20(2).jpeg"></button>
-        </figure>
-        <figure class="tile portrait reveal" role="listitem">
-          <img src="Images/DSC_0361%20(2).jpeg" alt="DSC_0361 (2)" loading="lazy" />
-          <button aria-label="Open DSC_0361 (2)" data-full="Images/DSC_0361%20(2).jpeg"></button>
-        </figure>
-        <figure class="tile reveal" role="listitem">
-          <img src="Images/DSC_0397.jpeg" alt="DSC_0397" loading="lazy" />
-          <button aria-label="Open DSC_0397" data-full="Images/DSC_0397.jpeg"></button>
-        </figure>
-        <figure class="tile wide reveal" role="listitem">
-          <img src="Images/DSC_0400%20(2).jpeg" alt="DSC_0400 (2)" loading="lazy" />
-          <button aria-label="Open DSC_0400 (2)" data-full="Images/DSC_0400%20(2).jpeg"></button>
-        </figure>
-      </div>
-    </section>
-
-    <section id="thanks" class="section" aria-labelledby="thanks-title">
-      <div class="thankyou">
-        <h2 id="thanks-title">Thank you for celebrating our wedding with us <span class="sparkle">✨</span></h2>
-      </div>
-      <div class="cta-center">
-        <a class="btn primary cta" href="https://photos.app.goo.gl/t2XHYmYEDafnPmdV8" target="_blank" rel="noopener">View Full Album</a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container row">
-      <div class="credit">
-        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
-        <span> Yours in service and creativity, <a href="https://www.facebook.com/Skywalkersmedia" target="_blank" rel="noopener">Sky Walkers Media</a></span>
-      </div>
-      <div class="social">
-        <a aria-label="Instagram" href="https://www.instagram.com/skywalkers_media_joburg/" target="_blank" rel="noopener" title="Instagram">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-        </a>
-        <a aria-label="Facebook" href="https://www.facebook.com/Skywalkersmedia" target="_blank" rel="noopener" title="Facebook">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-        </a>
-        <a aria-label="WhatsApp" href="https://wa.me/27737103529" target="_blank" rel="noopener" title="WhatsApp">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg>
-        </a>
-      </div>
-    </div>
-  </footer>
-
-  <dialog id="lightbox">
-    <div class="lightbox-inner">
-      <img id="lightImg" src="" alt="Expanded photo"/>
-      <button id="closeBtn" aria-label="Close">✕</button>
-    </div>
-  </dialog>
-
-  <script src="./app.js"></script>
-</body>
-</html>
+      <div class="brand" aria-label="Couple names">Oar
