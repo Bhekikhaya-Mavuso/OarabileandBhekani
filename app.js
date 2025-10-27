@@ -1,35 +1,29 @@
-// Scroll reveal for gallery tiles
-const tiles = document.querySelectorAll('.reveal');
-const io = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
-},{threshold:0.15});
-tiles.forEach(t=> io.observe(t));
+// Reveal on scroll
+const tiles=document.querySelectorAll('.reveal');
+const io=new IntersectionObserver((e)=>{
+  e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}});
+},{threshold:.15});
+tiles.forEach(t=>io.observe(t));
 
-// Simple hero crossfade slideshow
-(function(){
-  const imgs = document.querySelectorAll('.cover .slide');
-  if(imgs.length < 2) return;
-  let i = 0;
-  setInterval(()=>{
-    imgs[i].classList.remove('active');
-    i = (i+1) % imgs.length;
-    imgs[i].classList.add('active');
-  }, 3500);
-})();
+// Slideshow
+let i=0;
+const slides=document.querySelectorAll('.slide');
+setInterval(()=>{
+  slides[i].classList.remove('active');
+  i=(i+1)%slides.length;
+  slides[i].classList.add('active');
+},3000);
 
-// Lightweight lightbox (uses WebP full-size by default)
-const dlg = document.getElementById('lightbox');
-const lightImg = document.getElementById('lightImg');
-const closeBtn = document.getElementById('closeBtn');
-
-document.addEventListener('click', (e)=>{
-  const btn = e.target.closest('button[data-full]');
+// Lightbox
+const dlg=document.getElementById('lightbox');
+const img=document.getElementById('lightImg');
+document.addEventListener('click',(e)=>{
+  const btn=e.target.closest('button[data-full]');
   if(!btn) return;
-  lightImg.src = btn.getAttribute('data-full'); // .webp
+  img.src=btn.dataset.full;
   dlg.showModal();
 });
+document.getElementById('closeBtn').onclick=()=>dlg.close();
+dlg.onclick=e=>{if(e.target===dlg)dlg.close()};
 
-closeBtn.addEventListener('click', ()=> dlg.close());
-dlg.addEventListener('click', (e)=>{ if(e.target === dlg) dlg.close(); });
-document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && dlg.open) dlg.close(); });
 
