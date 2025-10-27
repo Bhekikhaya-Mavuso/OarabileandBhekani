@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Oarabile &amp; Bhekani — Wedding Photos</title>
+  <meta name="description" content="A simple, elegant landing page for Oarabile &amp; Bhekani's wedding photos with a responsive gallery and lightbox." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand" aria-label="Couple names">Oarabile &amp; Bhekani</div>
+      <nav>
+        <a class="btn" href="#gallery">Gallery</a>
+        <a class="btn primary" href="https://photos.app.goo.gl/t2XHYmYEDafnPmdV8" target="_blank" rel="noopener">Full Album</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-card">
+        <h1 id="hero-title" class="title">Oarabile &amp; Bhekani — Our Wedding Photos</h1>
+        <p class="subtitle">25 October 2025 | Meredale | By Sky Walkers Media</p>
+        <p class="intro">Tap any image to view larger or visit the full gallery.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="https://photos.app.goo.gl/t2XHYmYEDafnPmdV8" target="_blank" rel="noopener">View Full Gallery</a>
+          <a class="btn" href="#gallery">Scroll to Highlights</a>
+        </div>
+      </div>
+
+      <!-- HERO SLIDESHOW (uses 4 images from Images/) -->
+      <figure class="cover reveal" aria-label="Hero slideshow">
+        <img class="slide active" src="Images/DSC_0012.jpeg" alt="Wedding portrait" loading="eager"/>
+        <img class="slide" src="Images/DSC_0410.jpeg" alt="Processional moment" loading="lazy"/>
+        <img class="slide" src="Images/DSC_0096_1.jpeg" alt="Ceremony smiles" loading="lazy"/>
+        <img class="slide" src="Images/DSC_0429.jpeg" alt="Candid after the ceremony" loading="lazy"/>
+        <figcaption class="badge">300+ images</figcaption>
+      </figure>
+    </section>
+
+    <section id="gallery" class="section" aria-labelledby="gal-title">
+      <h2 id="gal-title">Highlights</h2>
+      
+      <div class="grid" role="list">
+        <!-- 20 images — URL-encoded for spaces in filenames -->
+        <figure class="tile wide reveal" role="listitem">
+          <img src="Images/DSC_0410.jpeg" alt="DSC_0410" loading="lazy" />
+          <button aria-label="Open DSC_0410" data-full="Images/DSC_0410.jpeg"></button>
+        </figure>
+        <figure class="tile reveal" role="listitem">
+          <img src="Images/DSC_0426.jpeg" alt="DSC_0426" loading="lazy" />
+          <button aria-label="Open DSC_0426" data-full="Images/DSC_0426.jpeg"></button>
+        </figure>
+        <figure class="tile portrait reveal" role="listitem">
+          <img src="Images/DSC_0428.jpeg" alt="DSC_0428" loading="lazy" />
+          <button aria-label="Open DSC_0428" data-full="Images/DSC_0428.jpeg"></button>
+        </figure>
+        <figure class="tile reveal" role="listitem">
+          <img src="Images/DSC_0429.jpeg" alt="DSC_0429" loading="lazy" />
+          <button aria-label="Open DSC_0429" data-full="Images/DSC_0429.jpeg"></button>
+        </figure>
+        <figure class="tile reveal" role="listitem">
+          <img src="Images/DSC_0012.jpeg" alt="DSC_0012" loading="lazy" />
+          <button aria-label="Open DSC_0012" data-full="Images/DSC_0012.jpeg"></button>
+        </figure>
+        <figure class="tile wide reveal" role="listitem">
+          <img src="Images/DSC_0096_1.jpeg" alt="DSC_0096_1" loading="lazy" />
+          <button aria-label="Open DSC_0096_1" data-full="Images/DSC_0096_1.jpeg"></button>
+        </figure>
+        <figure class="tile portrait reveal" role="listitem">
+          <img src="Images/DSC_0099.jpeg" alt="DSC_0099" loading="lazy" />
+          <button aria-label="Open DSC_0099" data-full="Images/DSC_0099.jpeg"></button>
+        </figure>
+        <figure class="tile reveal" role="listitem">
+          <img src="Images/DSC_0104_1.jpeg" alt="DSC_0104_1" loading="lazy" />
+          <button aria-label="Open DSC_0104_1" data-full="Images/DSC_0104_1.jpeg"></button>
+        </figure>
+        <figure class="tile portrait reveal" role="listitem">
+          <img src="Images/DSC_0131.jpeg" alt="DSC_0131" loading="lazy" />
+          <button aria-label="Open DSC_0131" data-full="Images/DSC_0131.jpeg"></button>
+        </figure>
+        <figure class="tile reveal" role="listitem">
+          <img src="Images/DSC_0167.jpeg" alt="DSC_0167" loading="lazy" />
+          <button aria-label="Open DSC_0167" data-full="Images/DSC_0167.jpeg"></button>
+        </figure>
+        <figure class="tile wide reveal" role="listitem">
+          <img src="Images/DSC_0264%20(2).jpeg" alt="DSC_0264 (2)" loading="lazy" />
+          <button aria-label="Open DSC_0264 (2)" data-full="Images/DSC_0264%20(2).jpeg"></button>
+        </figure>
+        <figure class="tile portrait reveal" role="listitem">
+          <img src="Images/DSC_0267%20(2).jpeg" alt="DSC_0267 (2)" loading="lazy" />
+          <button aria-label="Open DSC_0267 (2)" data-full="Images/DSC_0267%20(2).jpeg"></button>
+        </figure>
+        <figure class="tile reveal" role="listitem">
+          <img src="Images/DSC_0275%20(2).jpeg" alt="DSC_0275 (2)" loading="lazy" />
+          <button aria-label="Open DSC_0275 (2)" data-full="Images/DSC_0275%20(2).jpeg"></button>
+        </figure>
+        <figure class="tile portrait reveal" role="listitem">
+          <img src="Images/DSC_0282.jpeg" alt="DSC_0282" loading="lazy" />
+          <button aria-label="Open DSC_0282" data-full="Images/DSC_0282.jpeg"></button>
+        </figure>
+        <figure class="tile reveal" role="listitem">
+          <img src="Images/DSC_0283.jpeg" alt="DSC_0283" loading="lazy" />
+          <button aria-label="Open DSC_0283" data-full="Images/DSC_0283.jpeg"></button>
+        </figure>
+        <figure class="tile wide reveal" role="listitem">
+          <img src="Images/DSC_0350%20(2).jpeg" alt="DSC_0350 (2)" loading="lazy" />
+          <button aria-label="Open DSC_0350 (2)" data-full="Images/DSC_0350%20(2).jpeg"></button>
+        </figure>
+        <figure class="tile reveal" role="listitem">
+          <img src="Images/DSC_0355%20(2).jpeg" alt="DSC_0355 (2)" loading="lazy" />
+          <button aria-label="Open DSC_0355 (2)" data-full="Images/DSC_0355%20(2).jpeg"></button>
+        </figure>
+        <figure class="tile portrait reveal" role="listitem">
+          <img src="Images/DSC_0361%20(2).jpeg" alt="DSC_0361 (2)" loading="lazy" />
+          <button aria-label="Open DSC_0361 (2)" data-full="Images/DSC_0361%20(2).jpeg"></button>
+        </figure>
+        <figure class="tile reveal" role="listitem">
+          <img src="Images/DSC_0397.jpeg" alt="DSC_0397" loading="lazy" />
+          <button aria-label="Open DSC_0397" data-full="Images/DSC_0397.jpeg"></button>
+        </figure>
+        <figure class="tile wide reveal" role="listitem">
+          <img src="Images/DSC_0400%20(2).jpeg" alt="DSC_0400 (2)" loading="lazy" />
+          <button aria-label="Open DSC_0400 (2)" data-full="Images/DSC_0400%20(2).jpeg"></button>
+        </figure>
+      </div>
+    </section>
+
+    <section id="thanks" class="section" aria-labelledby="thanks-title">
+      <div class="thankyou">
+        <h2 id="thanks-title">Thank you for celebrating our wedding with us <span class="sparkle">✨</span></h2>
+      </div>
+      <div class="cta-center">
+        <a class="btn primary cta" href="https://photos.app.goo.gl/t2XHYmYEDafnPmdV8" target="_blank" rel="noopener">View Full Album</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container row">
+      <div class="credit">
+        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+        <span> Yours in service and creativity, <a href="https://www.facebook.com/Skywalkersmedia" target="_blank" rel="noopener">Sky Walkers Media</a></span>
+      </div>
+      <div class="social">
+        <a aria-label="Instagram" href="https://www.instagram.com/skywalkers_media_joburg/" target="_blank" rel="noopener" title="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        </a>
+        <a aria-label="Facebook" href="https://www.facebook.com/Skywalkersmedia" target="_blank" rel="noopener" title="Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+        </a>
+        <a aria-label="WhatsApp" href="https://wa.me/27737103529" target="_blank" rel="noopener" title="WhatsApp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <dialog id="lightbox">
+    <div class="lightbox-inner">
+      <img id="lightImg" src="" alt="Expanded photo"/>
+      <button id="closeBtn" aria-label="Close">✕</button>
+    </div>
+  </dialog>
+
+  <script src="./app.js"></script>
+</body>
+</html>
