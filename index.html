@@ -4,80 +4,198 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Oarabile &amp; Bhekani — Wedding Photos</title>
-  <meta name="description" content="A simple, elegant landing page for Oarabile &amp; Bhekani's wedding photos with a responsive gallery and lightbox." />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <meta name="description" content="Selected moments from Oarabile & Bhekani’s wedding.">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand">Oarabile &amp; Bhekani</div>
+      <nav class="main-nav">
+        <a class="btn" href="#gallery">Gallery</a>
+        <a class="btn primary" href="https://photos.app.goo.gl/t2XHYmYEDafnPmdV8" target="_blank" rel="noopener">Full Album</a>
+      </nav>
+    </div>
+  </header>
 
-<header>
-  <div class="container nav">
-    <div class="brand">Oarabile &amp; Bhekani</div>
-    <nav>
-      <a class="btn" href="#gallery">Gallery</a>
-      <a class="btn primary" href="https://photos.app.goo.gl/t2XHYmYEDafnPmdV8" target="_blank">Full Album</a>
-    </nav>
-  </div>
-</header>
+  <main class="container">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-card">
+        <h1 id="hero-title" class="title">Oarabile &amp; Bhekani — Wedding Photos</h1>
+        <p class="subtitle">A few favourites from our day. Tap any image to view larger or visit the full gallery.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="https://photos.app.goo.gl/t2XHYmYEDafnPmdV8" target="_blank" rel="noopener">View Full Gallery</a>
+          <a class="btn" href="#gallery">Scroll to Highlights</a>
+        </div>
+      </div>
 
-<main class="container">
-  <section class="hero">
-    <div class="hero-card">
-      <h1 class="title">Oarabile &amp; Bhekani — Wedding Photos</h1>
-      <p class="subtitle">Selected moments from our day</p>
-      <p class="intro">Tap any image to view larger or visit the full gallery.</p>
-      <div class="hero-actions">
-        <a class="btn primary" href="https://photos.app.goo.gl/t2XHYmYEDafnPmdV8" target="_blank">View Full Gallery</a>
-        <a class="btn" href="#gallery">Scroll to Highlights</a>
+      <!-- HERO SLIDESHOW: WebP preferred, JPG fallback -->
+      <figure class="cover reveal" aria-label="Hero slideshow">
+        <picture>
+          <source type="image/webp" srcset="Images/DSC_0012.webp" />
+          <img class="slide active" src="Images/DSC_0012.jpg" alt="Wedding portrait" width="1200" height="1500" fetchpriority="high" decoding="async">
+        </picture>
+        <picture>
+          <source type="image/webp" srcset="Images/DSC_0410.webp" />
+          <img class="slide" src="Images/DSC_0410.jpg" alt="Processional" width="1200" height="1500" loading="lazy" decoding="async">
+        </picture>
+        <picture>
+          <source type="image/webp" srcset="Images/DSC_0096_1.webp" />
+          <img class="slide" src="Images/DSC_0096_1.jpg" alt="Ceremony smiles" width="1200" height="1500" loading="lazy" decoding="async">
+        </picture>
+        <picture>
+          <source type="image/webp" srcset="Images/DSC_0429.webp" />
+          <img class="slide" src="Images/DSC_0429.jpg" alt="Candid after the ceremony" width="1200" height="1500" loading="lazy" decoding="async">
+        </picture>
+        <figcaption class="badge">300+ images</figcaption>
+      </figure>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="section" aria-labelledby="gal-title">
+      <h2 id="gal-title">Highlights</h2>
+      <p class="muted">Click any image to open the lightbox.</p>
+
+      <div class="grid" role="list">
+        <!-- Pattern: WebP + JPG fallback. data-full points to .webp (your new format). -->
+        <figure class="tile wide reveal" role="listitem">
+          <picture><source type="image/webp" srcset="Images/DSC_0410.webp" /><img src="Images/DSC_0410.jpg" alt="DSC_0410" width="1200" height="800" loading="lazy" decoding="async"></picture>
+          <button data-full="Images/DSC_0410.webp" aria-label="Open DSC_0410"></button>
+        </figure>
+
+        <figure class="tile reveal" role="listitem">
+          <picture><source type="image/webp" srcset="Images/DSC_0426.webp" /><img src="Images/DSC_0426.jpg" alt="DSC_0426" width="1200" height="800" loading="lazy" decoding="async"></picture>
+          <button data-full="Images/DSC_0426.webp" aria-label="Open DSC_0426"></button>
+        </figure>
+
+        <figure class="tile portrait reveal" role="listitem">
+          <picture><source type="image/webp" srcset="Images/DSC_0428.webp" /><img src="Images/DSC_0428.jpg" alt="DSC_0428" width="900" height="1200" loading="lazy" decoding="async"></picture>
+          <button data-full="Images/DSC_0428.webp" aria-label="Open DSC_0428"></button>
+        </figure>
+
+        <figure class="tile reveal" role="listitem">
+          <picture><source type="image/webp" srcset="Images/DSC_0429.webp" /><img src="Images/DSC_0429.jpg" alt="DSC_0429" width="1200" height="800" loading="lazy" decoding="async"></picture>
+          <button data-full="Images/DSC_0429.webp" aria-label="Open DSC_0429"></button>
+        </figure>
+
+        <figure class="tile reveal" role="listitem">
+          <picture><source type="image/webp" srcset="Images/DSC_0012.webp" /><img src="Images/DSC_0012.jpg" alt="DSC_0012" width="1200" height="800" loading="lazy" decoding="async"></picture>
+          <button data-full="Images/DSC_0012.webp" aria-label="Open DSC_0012"></button>
+        </figure>
+
+        <figure class="tile wide reveal" role="listitem">
+          <picture><source type="image/webp" srcset="Images/DSC_0096_1.webp" /><img src="Images/DSC_0096_1.jpg" alt="DSC_0096_1" width="1200" height="800" loading="lazy" decoding="async"></picture>
+          <button data-full="Images/DSC_0096_1.webp" aria-label="Open DSC_0096_1"></button>
+        </figure>
+
+        <figure class="tile portrait reveal" role="listitem">
+          <picture><source type="image/webp" srcset="Images/DSC_0099.webp" /><img src="Images/DSC_0099.jpg" alt="DSC_0099" width="900" height="1200" loading="lazy" decoding="async"></picture>
+          <button data-full="Images/DSC_0099.webp" aria-label="Open DSC_0099"></button>
+        </figure>
+
+        <figure class="tile reveal" role="listitem">
+          <picture><source type="image/webp" srcset="Images/DSC_0104_1.webp" /><img src="Images/DSC_0104_1.jpg" alt="DSC_0104_1" width="1200" height="800" loading="lazy" decoding="async"></picture>
+          <button data-full="Images/DSC_0104_1.webp" aria-label="Open DSC_0104_1"></button>
+        </figure>
+
+        <figure class="tile portrait reveal" role="listitem">
+          <picture><source type="image/webp" srcset="Images/DSC_0131.webp" /><img src="Images/DSC_0131.jpg" alt="DSC_0131" width="900" height="1200" loading="lazy" decoding="async"></picture>
+          <button data-full="Images/DSC_0131.webp" aria-label="Open DSC_0131"></button>
+        </figure>
+
+        <figure class="tile reveal" role="listitem">
+          <picture><source type="image/webp" srcset="Images/DSC_0167.webp" /><img src="Images/DSC_0167.jpg" alt="DSC_0167" width="1200" height="800" loading="lazy" decoding="async"></picture>
+          <button data-full="Images/DSC_0167.webp" aria-label="Open DSC_0167"></button>
+        </figure>
+
+        <figure class="tile wide reveal" role="listitem">
+          <picture><source type="image/webp" srcset="Images/DSC_0264%20(2).webp" /><img src="Images/DSC_0264%20(2).jpg" alt="DSC_0264 (2)" width="1200" height="800" loading="lazy" decoding="async"></picture>
+          <button data-full="Images/DSC_0264%20(2).webp" aria-label="Open DSC_0264 (2)"></button>
+        </figure>
+
+        <figure class="tile portrait reveal" role="listitem">
+          <picture><source type="image/webp" srcset="Images/DSC_0267%20(2).webp" /><img src="Images/DSC_0267%20(2).jpg" alt="DSC_0267 (2)" width="900" height="1200" loading="lazy" decoding="async"></picture>
+          <button data-full="Images/DSC_0267%20(2).webp" aria-label="Open DSC_0267 (2)"></button>
+        </figure>
+
+        <figure class="tile reveal" role="listitem">
+          <picture><source type="image/webp" srcset="Images/DSC_0275%20(2).webp" /><img src="Images/DSC_0275%20(2).jpg" alt="DSC_0275 (2)" width="1200" height="800" loading="lazy" decoding="async"></picture>
+          <button data-full="Images/DSC_0275%20(2).webp" aria-label="Open DSC_0275 (2)"></button>
+        </figure>
+
+        <figure class="tile portrait reveal" role="listitem">
+          <picture><source type="image/webp" srcset="Images/DSC_0282.webp" /><img src="Images/DSC_0282.jpg" alt="DSC_0282" width="900" height="1200" loading="lazy" decoding="async"></picture>
+          <button data-full="Images/DSC_0282.webp" aria-label="Open DSC_0282"></button>
+        </figure>
+
+        <figure class="tile reveal" role="listitem">
+          <picture><source type="image/webp" srcset="Images/DSC_0283.webp" /><img src="Images/DSC_0283.jpg" alt="DSC_0283" width="1200" height="800" loading="lazy" decoding="async"></picture>
+          <button data-full="Images/DSC_0283.webp" aria-label="Open DSC_0283"></button>
+        </figure>
+
+        <figure class="tile wide reveal" role="listitem">
+          <picture><source type="image/webp" srcset="Images/DSC_0350%20(2).webp" /><img src="Images/DSC_0350%20(2).jpg" alt="DSC_0350 (2)" width="1200" height="800" loading="lazy" decoding="async"></picture>
+          <button data-full="Images/DSC_0350%20(2).webp" aria-label="Open DSC_0350 (2)"></button>
+        </figure>
+
+        <figure class="tile reveal" role="listitem">
+          <picture><source type="image/webp" srcset="Images/DSC_0355%20(2).webp" /><img src="Images/DSC_0355%20(2).jpg" alt="DSC_0355 (2)" width="1200" height="800" loading="lazy" decoding="async"></picture>
+          <button data-full="Images/DSC_0355%20(2).webp" aria-label="Open DSC_0355 (2)"></button>
+        </figure>
+
+        <figure class="tile portrait reveal" role="listitem">
+          <picture><source type="image/webp" srcset="Images/DSC_0361%20(2).webp" /><img src="Images/DSC_0361%20(2).jpg" alt="DSC_0361 (2)" width="900" height="1200" loading="lazy" decoding="async"></picture>
+          <button data-full="Images/DSC_0361%20(2).webp" aria-label="Open DSC_0361 (2)"></button>
+        </figure>
+
+        <figure class="tile reveal" role="listitem">
+          <picture><source type="image/webp" srcset="Images/DSC_0397.webp" /><img src="Images/DSC_0397.jpg" alt="DSC_0397" width="1200" height="800" loading="lazy" decoding="async"></picture>
+          <button data-full="Images/DSC_0397.webp" aria-label="Open DSC_0397"></button>
+        </figure>
+
+        <figure class="tile wide reveal" role="listitem">
+          <picture><source type="image/webp" srcset="Images/DSC_0400%20(2).webp" /><img src="Images/DSC_0400%20(2).jpg" alt="DSC_0400 (2)" width="1200" height="800" loading="lazy" decoding="async"></picture>
+          <button data-full="Images/DSC_0400%20(2).webp" aria-label="Open DSC_0400 (2)"></button>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Thanks + CTA -->
+    <section id="thanks" class="section" aria-labelledby="thanks-title">
+      <div class="thankyou">
+        <h2 id="thanks-title">Thank you for celebrating our wedding with us <span class="sparkle">✨</span></h2>
+      </div>
+      <div class="cta-center">
+        <a class="btn primary cta" href="https://photos.app.goo.gl/t2XHYmYEDafnPmdV8" target="_blank" rel="noopener">View Full Album</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer with socials -->
+  <footer>
+    <div class="container row">
+      <div class="credit">© Sky Walkers Media</div>
+      <div class="social">
+        <a aria-label="Instagram" href="https://www.instagram.com/skywalkers_media_joburg/" target="_blank" rel="noopener">Instagram</a>
+        <a aria-label="Facebook" href="https://www.facebook.com/Skywalkersmedia" target="_blank" rel="noopener">Facebook</a>
+        <a aria-label="WhatsApp" href="https://wa.me/27737103529" target="_blank" rel="noopener">WhatsApp: 073 710 3529</a>
       </div>
     </div>
+  </footer>
 
-    <figure class="cover reveal">
-      <img class="slide active" src="Images/DSC_0012.jpg" loading="eager">
-      <img class="slide" src="Images/DSC_0410.jpg">
-      <img class="slide" src="Images/DSC_0096_1.jpg">
-      <img class="slide" src="Images/DSC_0429.jpg">
-      <figcaption class="badge">300+ images</figcaption>
-    </figure>
-  </section>
-
-  <section id="gallery" class="section">
-    <h2>Highlights</h2>
-    <p>Click any image to enlarge</p>
-    <div class="grid">
-      <!-- Only include files that are uploaded in Images/ -->
-      <figure class="tile reveal"><img src="Images/DSC_0012.jpg"><button data-full="Images/DSC_0012.jpg"></button></figure>
-      <figure class="tile reveal"><img src="Images/DSC_0410.jpg"><button data-full="Images/DSC_0410.jpg"></button></figure>
-      <figure class="tile reveal"><img src="Images/DSC_0096_1.jpg"><button data-full="Images/DSC_0096_1.jpg"></button></figure>
-      <figure class="tile reveal"><img src="Images/DSC_0429.jpg"><button data-full="Images/DSC_0429.jpg"></button></figure>
-      <!-- Paste more below once you finish uploads -->
+  <!-- Lightbox -->
+  <dialog id="lightbox">
+    <div class="lightbox-inner">
+      <img id="lightImg" src="" alt="Expanded photo">
+      <button id="closeBtn" aria-label="Close">✕</button>
     </div>
-  </section>
+  </dialog>
 
-  <section id="thanks" class="section">
-    <div class="thankyou">
-      <h2>Thank you for celebrating our wedding with us ✨</h2>
-    </div>
-    <div class="cta-center">
-      <a class="btn primary" href="https://photos.app.goo.gl/t2XHYmYEDafnPmdV8" target="_blank">View Full Album</a>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="container row">
-    <div class="credit">© Sky Walkers Media</div>
-  </div>
-</footer>
-
-<dialog id="lightbox">
-  <div class="lightbox-inner">
-    <img id="lightImg" src="">
-    <button id="closeBtn" aria-label="Close">✕</button>
-  </div>
-</dialog>
-
-<script src="app.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
+
 
